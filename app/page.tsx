@@ -1,241 +1,153 @@
-import { Card } from "@/components/ui/card"
-import { AlertCircle, Smartphone, Download, FileCode, BookOpen } from "lucide-react"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+import { Smartphone, Download, FileCode } from "lucide-react"
 
 export default function Page() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-blue-50 to-pink-50 p-6">
-      <div className="mx-auto max-w-5xl space-y-6">
+    <div className="min-h-screen bg-gradient-to-b from-background to-muted/20 p-8">
+      <div className="mx-auto max-w-4xl space-y-8">
         {/* Header */}
-        <div className="text-center space-y-3 pt-12 pb-6">
-          <div className="flex items-center justify-center gap-3">
-            <Smartphone className="h-12 w-12 text-purple-600" />
-            <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-              AdMob React Native App
-            </h1>
+        <div className="text-center space-y-4">
+          <div className="flex justify-center">
+            <Smartphone className="h-16 w-16 text-primary" />
           </div>
-          <p className="text-lg text-gray-600">Complete Mobile Application with Google AdMob Integration</p>
+          <h1 className="text-4xl font-bold tracking-tight">React Native AdMob App</h1>
+          <p className="text-muted-foreground text-lg">
+            A mobile application demonstrating Google AdMob integration with Interstitial and Rewarded Video Ads
+          </p>
         </div>
 
         {/* Important Notice */}
-        <Card className="border-orange-200 bg-orange-50 p-6">
-          <div className="flex gap-4">
-            <AlertCircle className="h-6 w-6 text-orange-600 flex-shrink-0 mt-1" />
+        <Alert>
+          <Smartphone className="h-4 w-4" />
+          <AlertTitle>Mobile App Only</AlertTitle>
+          <AlertDescription>
+            This is a React Native mobile application designed to run on Android devices. It cannot be previewed in a
+            web browser. Follow the setup instructions below to run it on your device.
+          </AlertDescription>
+        </Alert>
+
+        {/* Features */}
+        <Card>
+          <CardHeader>
+            <CardTitle>Features</CardTitle>
+            <CardDescription>What's included in this app</CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-2">
+            <div className="flex items-start gap-3">
+              <div className="rounded-full bg-primary/10 p-2">
+                <FileCode className="h-4 w-4 text-primary" />
+              </div>
+              <div>
+                <p className="font-medium">Interstitial Ads</p>
+                <p className="text-sm text-muted-foreground">
+                  Full-screen ads that display at natural transition points
+                </p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <div className="rounded-full bg-primary/10 p-2">
+                <FileCode className="h-4 w-4 text-primary" />
+              </div>
+              <div>
+                <p className="font-medium">Rewarded Video Ads</p>
+                <p className="text-sm text-muted-foreground">Users watch videos to earn in-app rewards</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <div className="rounded-full bg-primary/10 p-2">
+                <FileCode className="h-4 w-4 text-primary" />
+              </div>
+              <div>
+                <p className="font-medium">Test Ad Units</p>
+                <p className="text-sm text-muted-foreground">Pre-configured with Google's test ad unit IDs</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <div className="rounded-full bg-primary/10 p-2">
+                <FileCode className="h-4 w-4 text-primary" />
+              </div>
+              <div>
+                <p className="font-medium">Event Handling</p>
+                <p className="text-sm text-muted-foreground">
+                  Complete lifecycle event management with console logs and alerts
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Setup Instructions */}
+        <Card>
+          <CardHeader>
+            <CardTitle>Quick Start</CardTitle>
+            <CardDescription>Get the app running on your Android device</CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
             <div className="space-y-2">
-              <h2 className="text-xl font-semibold text-orange-900">React Native Mobile App</h2>
-              <p className="text-orange-800 leading-relaxed">
-                This is a <strong>React Native mobile application</strong> for Android/iOS, not a web app. It cannot be
-                previewed in this browser environment. To use this app, you need to download the code and run it on an
-                Android emulator or physical device.
+              <p className="font-medium">1. Install Dependencies</p>
+              <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">npm install</pre>
+            </div>
+            <div className="space-y-2">
+              <p className="font-medium">2. Run on Android</p>
+              <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">npm run android</pre>
+            </div>
+            <div className="space-y-2">
+              <p className="text-sm text-muted-foreground">
+                Make sure you have Android Studio installed and an Android device/emulator connected. See{" "}
+                <code className="bg-muted px-1 py-0.5 rounded">SETUP_INSTRUCTIONS.md</code> for detailed setup steps.
               </p>
             </div>
-          </div>
+          </CardContent>
         </Card>
 
-        {/* What's Included */}
-        <Card className="p-6">
-          <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
-            <FileCode className="h-6 w-6 text-blue-600" />
-            What's Included
-          </h2>
-          <div className="grid md:grid-cols-2 gap-4">
-            <div className="space-y-3">
-              <div className="flex items-start gap-3">
-                <div className="h-2 w-2 bg-green-500 rounded-full mt-2" />
-                <div>
-                  <p className="font-semibold">Complete React Native App</p>
-                  <p className="text-sm text-gray-600">Full source code with TypeScript</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="h-2 w-2 bg-green-500 rounded-full mt-2" />
-                <div>
-                  <p className="font-semibold">Google AdMob SDK Integration</p>
-                  <p className="text-sm text-gray-600">Using react-native-google-mobile-ads</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="h-2 w-2 bg-green-500 rounded-full mt-2" />
-                <div>
-                  <p className="font-semibold">Interstitial Ads</p>
-                  <p className="text-sm text-gray-600">Full-screen ads with complete lifecycle</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="h-2 w-2 bg-green-500 rounded-full mt-2" />
-                <div>
-                  <p className="font-semibold">Rewarded Video Ads</p>
-                  <p className="text-sm text-gray-600">Video ads with reward tracking</p>
-                </div>
-              </div>
+        {/* File Structure */}
+        <Card>
+          <CardHeader>
+            <CardTitle>Key Files</CardTitle>
+            <CardDescription>Important files in this project</CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-2">
+            <div className="flex justify-between items-center py-2 border-b">
+              <code className="text-sm font-mono">App.tsx</code>
+              <span className="text-sm text-muted-foreground">Main React Native component with AdMob logic</span>
             </div>
-            <div className="space-y-3">
-              <div className="flex items-start gap-3">
-                <div className="h-2 w-2 bg-blue-500 rounded-full mt-2" />
-                <div>
-                  <p className="font-semibold">Android Configuration</p>
-                  <p className="text-sm text-gray-600">AndroidManifest.xml & Gradle files</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="h-2 w-2 bg-blue-500 rounded-full mt-2" />
-                <div>
-                  <p className="font-semibold">Test Ad Unit IDs</p>
-                  <p className="text-sm text-gray-600">Pre-configured for immediate testing</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="h-2 w-2 bg-blue-500 rounded-full mt-2" />
-                <div>
-                  <p className="font-semibold">Complete Documentation</p>
-                  <p className="text-sm text-gray-600">Setup guide & troubleshooting</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="h-2 w-2 bg-blue-500 rounded-full mt-2" />
-                <div>
-                  <p className="font-semibold">Clean UI with React Hooks</p>
-                  <p className="text-sm text-gray-600">Modern functional components</p>
-                </div>
-              </div>
+            <div className="flex justify-between items-center py-2 border-b">
+              <code className="text-sm font-mono">index.js</code>
+              <span className="text-sm text-muted-foreground">Entry point for React Native app</span>
             </div>
-          </div>
+            <div className="flex justify-between items-center py-2 border-b">
+              <code className="text-sm font-mono">android/</code>
+              <span className="text-sm text-muted-foreground">Android native configuration</span>
+            </div>
+            <div className="flex justify-between items-center py-2 border-b">
+              <code className="text-sm font-mono">SETUP_INSTRUCTIONS.md</code>
+              <span className="text-sm text-muted-foreground">Detailed setup guide</span>
+            </div>
+            <div className="flex justify-between items-center py-2">
+              <code className="text-sm font-mono">README.md</code>
+              <span className="text-sm text-muted-foreground">Project overview and documentation</span>
+            </div>
+          </CardContent>
         </Card>
 
-        {/* Key Features */}
-        <Card className="p-6 bg-gradient-to-br from-purple-50 to-blue-50">
-          <h2 className="text-2xl font-bold mb-4">🎯 Key Features</h2>
-          <div className="grid gap-3">
-            <div className="flex items-center gap-3 bg-white p-3 rounded-lg">
-              <span className="text-2xl">✅</span>
-              <span>AdMob SDK initialization with proper error handling</span>
-            </div>
-            <div className="flex items-center gap-3 bg-white p-3 rounded-lg">
-              <span className="text-2xl">✅</span>
-              <span>Complete ad lifecycle management (load, show, close, error)</span>
-            </div>
-            <div className="flex items-center gap-3 bg-white p-3 rounded-lg">
-              <span className="text-2xl">✅</span>
-              <span>Loading indicators and user feedback with alerts</span>
-            </div>
-            <div className="flex items-center gap-3 bg-white p-3 rounded-lg">
-              <span className="text-2xl">✅</span>
-              <span>Console logging for all ad events (debugging)</span>
-            </div>
-            <div className="flex items-center gap-3 bg-white p-3 rounded-lg">
-              <span className="text-2xl">✅</span>
-              <span>Production-ready code following best practices</span>
-            </div>
-          </div>
+        {/* Download */}
+        <Card className="border-primary/50">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Download className="h-5 w-5" />
+              Download Project
+            </CardTitle>
+            <CardDescription>Get the complete source code</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-muted-foreground">
+              Click the download button in the top right corner of this chat to get the ZIP file with all source code,
+              configuration files, and documentation. Extract it and follow the setup instructions to run the app on
+              your Android device.
+            </p>
+          </CardContent>
         </Card>
-
-        {/* How to Use */}
-        <Card className="p-6">
-          <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
-            <Download className="h-6 w-6 text-green-600" />
-            How to Use This App
-          </h2>
-          <div className="space-y-4">
-            <div className="bg-gray-50 p-4 rounded-lg space-y-2">
-              <p className="font-semibold text-lg">Step 1: Download the Code</p>
-              <p className="text-gray-700">
-                Click the <strong>three dots</strong> in the top right corner and select <strong>"Download ZIP"</strong>
-                to get all the source files.
-              </p>
-            </div>
-
-            <div className="bg-gray-50 p-4 rounded-lg space-y-2">
-              <p className="font-semibold text-lg">Step 2: Install Dependencies</p>
-              <div className="bg-gray-900 text-white p-3 rounded font-mono text-sm">npm install</div>
-            </div>
-
-            <div className="bg-gray-50 p-4 rounded-lg space-y-2">
-              <p className="font-semibold text-lg">Step 3: Run on Android</p>
-              <div className="bg-gray-900 text-white p-3 rounded font-mono text-sm">npm run android</div>
-              <p className="text-sm text-gray-600">Make sure you have Android Studio and an emulator/device set up</p>
-            </div>
-
-            <div className="bg-gray-50 p-4 rounded-lg space-y-2">
-              <p className="font-semibold text-lg">Step 4: Test the Ads</p>
-              <p className="text-gray-700">
-                Tap the buttons in the app to load and display test ads. The app uses Google's official test ad unit
-                IDs.
-              </p>
-            </div>
-          </div>
-        </Card>
-
-        {/* Documentation */}
-        <Card className="p-6 bg-blue-50 border-blue-200">
-          <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
-            <BookOpen className="h-6 w-6 text-blue-600" />
-            Documentation Files
-          </h2>
-          <div className="space-y-3">
-            <div className="bg-white p-4 rounded-lg">
-              <p className="font-semibold text-lg mb-1">📄 SETUP_INSTRUCTIONS.md</p>
-              <p className="text-gray-600">
-                Complete setup guide with step-by-step instructions, Android configuration, troubleshooting tips, and
-                production deployment checklist.
-              </p>
-            </div>
-            <div className="bg-white p-4 rounded-lg">
-              <p className="font-semibold text-lg mb-1">📄 README.md</p>
-              <p className="text-gray-600">
-                Quick start guide, feature overview, technology stack, and links to additional resources.
-              </p>
-            </div>
-            <div className="bg-white p-4 rounded-lg">
-              <p className="font-semibold text-lg mb-1">📱 App.tsx</p>
-              <p className="text-gray-600">
-                Main application component with complete AdMob integration logic, event handlers, and UI components.
-              </p>
-            </div>
-          </div>
-        </Card>
-
-        {/* Requirements */}
-        <Card className="p-6">
-          <h2 className="text-2xl font-bold mb-4">📋 Requirements</h2>
-          <ul className="space-y-2 text-gray-700">
-            <li className="flex items-start gap-2">
-              <span className="text-purple-600 font-bold">•</span>
-              <span>
-                <strong>Node.js</strong> version 18 or higher
-              </span>
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-purple-600 font-bold">•</span>
-              <span>
-                <strong>Android Studio</strong> with Android SDK installed
-              </span>
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-purple-600 font-bold">•</span>
-              <span>
-                <strong>JDK 17</strong> or higher
-              </span>
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-purple-600 font-bold">•</span>
-              <span>
-                <strong>React Native CLI</strong> installed globally
-              </span>
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-purple-600 font-bold">•</span>
-              <span>
-                <strong>Android Emulator</strong> or physical Android device
-              </span>
-            </li>
-          </ul>
-        </Card>
-
-        {/* Footer */}
-        <div className="text-center py-8 text-gray-600">
-          <p className="text-lg font-semibold mb-2">Ready to Get Started?</p>
-          <p>Download the code and follow the setup instructions to run your AdMob-enabled React Native app!</p>
-          <p className="mt-4 text-sm">Built with ❤️ using React Native and Google AdMob</p>
-        </div>
       </div>
     </div>
   )
