@@ -34,14 +34,14 @@ The app features:
 ### Installation
 
 1. **Install dependencies**
-   ```bash
+   \`\`\`bash
    npm install
-   ```
+   \`\`\`
 
 2. **Run on Android**
-   ```bash
+   \`\`\`bash
    npm run android
-   ```
+   \`\`\`
 
 3. **Test the ads**
    - Tap "Show Interstitial Ad" to display full-screen ad
@@ -75,7 +75,7 @@ The app uses Google's official test ad unit IDs:
 
 ## 📂 Project Structure
 
-```
+\`\`\`
 ├── App.tsx                    # Main app component with ad logic
 ├── index.js                   # App entry point
 ├── package.json              # Dependencies
@@ -84,7 +84,7 @@ The app uses Google's official test ad unit IDs:
 │   └── app/src/main/
 │       └── AndroidManifest.xml  # AdMob configuration
 └── SETUP_INSTRUCTIONS.md    # Detailed setup guide
-```
+\`\`\`
 
 ## 🎯 Key Features Explained
 
@@ -124,13 +124,13 @@ Before releasing:
 ## 📊 Console Logging
 
 All ad events are logged for debugging:
-```
+\`\`\`
 ✅ AdMob SDK initialized successfully
 📱 Loading Interstitial Ad...
 👁️ Interstitial Ad opened
 ❌ Interstitial Ad closed
 🎉 User earned reward: {amount: 10, type: 'coins'}
-```
+\`\`\`
 
 ## 🐛 Common Issues
 
@@ -140,9 +140,9 @@ All ad events are logged for debugging:
 - Check console for errors
 
 **Build failures?**
-```bash
+\`\`\`bash
 cd android && ./gradlew clean && cd ..
-```
+\`\`\`
 
 See [SETUP_INSTRUCTIONS.md](./SETUP_INSTRUCTIONS.md) for more troubleshooting.
 

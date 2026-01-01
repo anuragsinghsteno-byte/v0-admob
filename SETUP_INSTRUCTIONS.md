@@ -20,13 +20,13 @@ Before starting, ensure you have:
 
 ### Step 1: Install Dependencies
 
-```bash
+\`\`\`bash
 # Install Node modules
 npm install
 
 # OR using yarn
 yarn install
-```
+\`\`\`
 
 ### Step 2: Android Configuration
 
@@ -34,33 +34,33 @@ yarn install
 
 The `AndroidManifest.xml` file already includes the AdMob App ID. For production, replace the test App ID:
 
-```xml
+\`\`\`xml
 <!-- Replace this test ID with your actual AdMob App ID -->
 <meta-data
   android:name="com.google.android.gms.ads.APPLICATION_ID"
   android:value="ca-app-pub-3940256099942544~3347511713"/>
-```
+\`\`\`
 
 #### 2.2 Verify build.gradle Files
 
 Ensure `android/app/build.gradle` includes:
 
-```gradle
+\`\`\`gradle
 dependencies {
     // ... other dependencies
     implementation 'com.google.android.gms:play-services-ads:23.6.0'
 }
-```
+\`\`\`
 
 ### Step 3: Link Native Dependencies (Automatic)
 
 React Native 0.60+ supports autolinking. Just run:
 
-```bash
+\`\`\`bash
 cd android
 ./gradlew clean
 cd ..
-```
+\`\`\`
 
 ---
 
@@ -68,13 +68,13 @@ cd ..
 
 ### Method 1: Using React Native CLI
 
-```bash
+\`\`\`bash
 # Start Metro bundler
 npm start
 
 # In another terminal, run Android app
 npm run android
-```
+\`\`\`
 
 ### Method 2: Using Android Studio
 
@@ -94,12 +94,12 @@ The app uses Google's test ad unit IDs for development:
 | **Rewarded Video** | `ca-app-pub-3940256099942544/5224354917` |
 
 These are automatically used via `TestIds` from the SDK:
-```typescript
+\`\`\`typescript
 import { TestIds } from 'react-native-google-mobile-ads';
 
 const interstitialAdUnitId = TestIds.INTERSTITIAL;
 const rewardedAdUnitId = TestIds.REWARDED;
-```
+\`\`\`
 
 ---
 
@@ -114,7 +114,7 @@ const rewardedAdUnitId = TestIds.REWARDED;
 
 In `App.tsx`, replace test IDs:
 
-```typescript
+\`\`\`typescript
 // BEFORE (Test Mode)
 const interstitialAdUnitId = TestIds.INTERSTITIAL;
 const rewardedAdUnitId = TestIds.REWARDED;
@@ -122,23 +122,23 @@ const rewardedAdUnitId = TestIds.REWARDED;
 // AFTER (Production)
 const interstitialAdUnitId = 'ca-app-pub-XXXXX/YYYYY'; // Your Interstitial ID
 const rewardedAdUnitId = 'ca-app-pub-XXXXX/ZZZZZ';     // Your Rewarded ID
-```
+\`\`\`
 
 ### Step 3: Update AndroidManifest.xml
 
 Replace test App ID with your production App ID:
 
-```xml
+\`\`\`xml
 <meta-data
   android:name="com.google.android.gms.ads.APPLICATION_ID"
   android:value="ca-app-pub-XXXXX~YYYYY"/> <!-- Your App ID -->
-```
+\`\`\`
 
 ---
 
 ## 📁 Project Structure
 
-```
+\`\`\`
 AdMobReactNativeApp/
 ├── App.tsx                          # Main application component
 ├── index.js                         # App entry point
@@ -150,7 +150,7 @@ AdMobReactNativeApp/
 │   │       └── AndroidManifest.xml # Android manifest with AdMob config
 │   └── build.gradle                # Project-level Gradle config
 └── SETUP_INSTRUCTIONS.md           # This file
-```
+\`\`\`
 
 ---
 
@@ -175,7 +175,7 @@ This is the core of the application containing:
 
 Contains required permissions and AdMob App ID:
 
-```xml
+\`\`\`xml
 <!-- Internet permission for ad loading -->
 <uses-permission android:name="android.permission.INTERNET" />
 
@@ -183,17 +183,17 @@ Contains required permissions and AdMob App ID:
 <meta-data
   android:name="com.google.android.gms.ads.APPLICATION_ID"
   android:value="ca-app-pub-XXXXX~YYYYY"/>
-```
+\`\`\`
 
 ### 3. **android/app/build.gradle**
 
 Includes Google Mobile Ads SDK dependency:
 
-```gradle
+\`\`\`gradle
 dependencies {
     implementation 'com.google.android.gms:play-services-ads:23.6.0'
 }
-```
+\`\`\`
 
 ---
 
@@ -233,12 +233,12 @@ dependencies {
 
 ### Issue: Gradle build fails
 **Solution**: 
-```bash
+\`\`\`bash
 cd android
 ./gradlew clean
 cd ..
 npm run android
-```
+\`\`\`
 
 ---
 
@@ -246,7 +246,7 @@ npm run android
 
 The app logs all ad events to console:
 
-```javascript
+\`\`\`javascript
 ✅ AdMob SDK initialized successfully
 📱 Loading Interstitial Ad...
 ✅ Interstitial Ad loaded successfully
@@ -255,7 +255,7 @@ The app logs all ad events to console:
 🎁 Loading Rewarded Video Ad...
 ✅ Rewarded Ad loaded successfully
 🎉 User earned reward: { amount: 10, type: 'coins' }
-```
+\`\`\`
 
 ---
 
@@ -276,10 +276,10 @@ The app logs all ad events to console:
 
 The app requires these Android permissions (already configured):
 
-```xml
+\`\`\`xml
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-```
+\`\`\`
 
 ---
 
@@ -289,27 +289,27 @@ The app requires these Android permissions (already configured):
 
 In `App.tsx`, modify the `styles` object:
 
-```typescript
+\`\`\`typescript
 interstitialButton: {
   backgroundColor: '#2196F3', // Change this color
 },
 rewardedButton: {
   backgroundColor: '#FF5722', // Change this color
 },
-```
+\`\`\`
 
 ### Modify Ad Loading Behavior
 
 You can preload ads instead of loading on button click:
 
-```typescript
+\`\`\`typescript
 useEffect(() => {
   if (isAdMobInitialized) {
     // Preload interstitial ad on app start
     preloadInterstitialAd();
   }
 }, [isAdMobInitialized]);
-```
+\`\`\`
 
 ---
 
